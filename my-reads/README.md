@@ -1,44 +1,93 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# my-reads.github.io
 
-## Available Scripts
+My reads is one of the last projects developed during the Advanced Nanodegree Front-End Web Developer course, and was created to implement a personal shelf which allows users to manupulate books they are reading, books they want to read and books they've already read. This project was build through React and uses the purest concept of ES6.
 
-In the project directory, you can run:
+It is important to mention this project uses an API provided and described by Udacity. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
 
-### `npm start`
+* [`getAll`](#getall)
+* [`update`](#update)
+* [`search`](#search)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `getAll`
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Method Signature:
 
-### `npm test`
+```js
+getAll()
+```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* getAll() is responsible to return a promise with a collection of books (the ones which are supposed to be in the bookshelf)
 
-### `npm run build`
+### `update`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Method Signature:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```js
+update(book, shelf)
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* book: `<Object>` this is the object which should contain an id related to the book itself
+* shelf: `<String>` this is a string which represents the position of this book in the shelf, in other words, want to read, currently reading or read
+* Returns a Promise with a list of id's related to the books and also returns the shelf position each book is
 
-### `npm run eject`
+### `search`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Method Signature:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```js
+search(query)
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* query: `<String>`
+* Returns a Promise with a collection of books
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Important
+This backend provided by Alura does its search in a limited amount of books, so do not hesitate if you don't get an expected book.
 
-## Learn More
+## How to use
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Download the project directly or go to a specific folder and download it by git:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* `git init` 
+
+* `git clone https://github.com/pedroarvellos/`
+
+* install all project dependencies with `npm install`
+* start the development server with `npm start`
+
+## What You're Getting
+```bash
+├── CONTRIBUTING.md
+├── README.md - This file.
+├── SEARCH_TERMS.md 
+├── package.json 
+├── public
+│   ├── favicon.ico 
+│   └── index.html
+└── src
+    ├── css 
+    │   ├── App.css
+    │   ├── index.css 
+    ├── icons 
+    │   ├── add.svg
+    │   ├── arrow-back.svg
+    │   └── arrow-drop-down.svg
+    ├── js
+    │   ├── book
+    │   │   ├── Book.js
+    │   │   ├── BookStatus.js
+    │   ├── book-shelf
+    │   │   ├── BookShelf.js
+    │   │   
+    │   ├── search
+    │   │   ├── Search.js
+    │   │   
+    │   ├── service
+    │   │   ├── BooksAPI.js
+    │   │   
+    ├── App.js
+    ├── App.test.js 
+    └── index.js 
+
+The project can be opened in any text editor, for example: _Sublime Text_, _Visual Studio_,  _Atom_, etc. To execute the project.
+
